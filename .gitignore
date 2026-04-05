@@ -1,0 +1,6 @@
+extraction_gemini/
+docs/
+**.pdf
+venv/
+test.py
+.env
