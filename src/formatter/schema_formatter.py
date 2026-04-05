@@ -71,3 +71,37 @@ def compare_json_to_list(
             )
 
     return result
+
+
+def format_json(data):
+    key_mapping = {
+        "name_of_scheme": "Name of Scheme",
+        "objective": "Objective",
+        "total_allocation": "Total Allocation",
+        "availability_period": "Availability Period",
+        "purpose_of_financing": "Purpose of Financing",
+        "guarantee_coverage": "Guarantee Coverage",
+        "gurantee_fee": "Guarantee Fee",
+        "payment_of_guarantee_fees": "Payment of Guarantee Fees",
+        "eligibility": "Eligibility",
+        "customer_financial_record": "Customer's Financial Record",
+        "customer_credit_record_and_litigation_or_suit": "Customer's credit records and litigation / suit",
+        "years_in_business": "Years in Business",
+        "type_of_facility": "Type of Facility",
+        "financing_limit": "Financing Limit",
+        "tenure_of_financing": "Tenure of Financing",
+        "interest_or_profit_rate": "Interest / Profit Rate",
+        "tangible_networth_TNW": 'Tangible Networth ("TNW")',
+        "mandatory_security": "Mandatory Security",
+        "guideliness_for_application": "Guideliness for Application",
+        "documents_required_to_be_submitted_upon_submitting_claims_to_SJPP": "Documents required to be submitted upon submitting claims to SJPP",
+        "BNM_features": "BNM Features",
+        "SJPP_right_to_audit": "SJPP's Right to Audit",
+        "other_terms": "Other Terms"
+    }
+
+    data["results"] = {
+    key_mapping.get(key, key): value
+    for key, value in data["results"].items()
+    }
+    return data

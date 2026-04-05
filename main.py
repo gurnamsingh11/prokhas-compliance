@@ -31,6 +31,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import JSONResponse
 
 from src.difference.main import main as compare_pdfs
+from src.formatter.schema_formatter import format_json
 
 logging.basicConfig(
     level=logging.INFO,
@@ -71,7 +72,7 @@ async def compare(
 
         logger.info("Comparing  before=%s  after=%s", before_path, after_path)
         try:
-            result = compare_pdfs(before_path, after_path)
+            result = format_json(compare_pdfs(before_path, after_path))
         except Exception as exc:
             logger.exception("Comparison failed")
             raise HTTPException(status_code=500, detail=str(exc)) from exc
