@@ -45,6 +45,14 @@ difference_schema = {
         "reason": {
             "type": "string",
             "description": "Explanation of the semantic difference or similarity"
+        },
+        "before": {
+            "type": "string",
+            "description": "The before value of the field"
+        },
+        "after": {
+            "type": "string",
+            "description": "The after value of the field"
         }
     },
     "required": ["difference", "reason"]
